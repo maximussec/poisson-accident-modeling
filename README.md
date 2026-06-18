@@ -4,7 +4,7 @@ Este repositório contém um pipeline completo de análise estatística de acide
 
 ## Estrutura do projeto
 
-
+```
 .
 ├── datatran2025.csv # Base bruta de dados (PRF)
 ├── output/ # Resultados gerados (CSV e resumo estatístico)
@@ -12,7 +12,7 @@ Este repositório contém um pipeline completo de análise estatística de acide
 ├── script_analise.py # Processamento e teste estatístico
 ├── script_graficos.py # Geração dos gráficos
 
-
+```
 ## Dependências
 
 Instale as bibliotecas necessárias:
@@ -33,11 +33,12 @@ Gera arquivos CSV com resultados
 python script_analise.py
 
 Saída gerada em:
-
+```.
 output/
 ├── poisson_dias_normais.csv
 ├── poisson_dias_sazonais.csv
 ├── summary.csv
+```
 2. Gerar os gráficos
 
 Este script:
@@ -50,10 +51,11 @@ Exporta gráficos em PNG e PDF
 python script_graficos.py
 
 Saída gerada em:
-
+```.
 charts/
 ├── br101_dias_normais.png/pdf
 ├── br101_dias_sazonais.png/pdf
+```
 Metodologia
 Classificação dos dias
 

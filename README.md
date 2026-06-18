@@ -6,11 +6,11 @@ Este repositório contém um pipeline completo de análise estatística de acide
 
 ```
 .
-├── datatran2025.csv # Base bruta de dados (PRF)
-├── output/ # Resultados gerados (CSV e resumo estatístico)
-├── charts/ # Gráficos gerados automaticamente
-├── script_analise.py # Processamento e teste estatístico
-├── script_graficos.py # Geração dos gráficos
+├── datatran2025.csv    # Base bruta de dados (PRF)
+├── output/             # Resultados gerados (CSV e resumo estatístico)
+├── charts/             # Gráficos gerados automaticamente
+├── poisson_modeling.py # Processamento e teste estatístico
+├── generate_charts.py  # Geração dos gráficos
 
 ```
 ## Dependências

@@ -1,0 +1,17 @@
+﻿# Dependências do Projeto: Modelagem de Acidentes com Distribuição de Poisson
+# Python >= 3.9
+
+# Manipulação, agregação e engenharia de atributos
+pandas>=2.0.0,<3.0.0
+
+# Computação vetorial e arranjos numéricos
+numpy>=1.24.0,<2.0.0
+
+# Modelagem estatística e teste qui-quadrado de aderência
+scipy>=1.10.0,<2.0.0
+
+# Geração de gráficos estatísticos e exportação em alta resolução (PNG/PDF)
+matplotlib>=3.7.0,<4.0.0
+
+# Feriados nacionais e estaduais brasileiros
+holidays>=0.30

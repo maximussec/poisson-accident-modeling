@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
-# CONFIGURAÇÃO
-
 INPUT_DIR = "output"
 CHARTS_DIR = "charts"
 
@@ -14,7 +12,6 @@ print("Iniciando geração de gráficos...")
 print(f"Lendo arquivos de: {INPUT_DIR}")
 print(f"Salvando gráficos em: {CHARTS_DIR}")
 
-# FUNÇÃO DE GERAÇÃO DOS GRÁFICOS
 
 def plot_distribuicao_dinamica(
     arquivo_csv,
@@ -41,9 +38,6 @@ def plot_distribuicao_dinamica(
         print(f"ERRO: Arquivo não encontrado: {caminho_resumo}")
         return
 
-    # =================================================
-    # LEITURA DOS DADOS
-    # =================================================
 
     df = pd.read_csv(
         caminho_csv,
@@ -65,18 +59,11 @@ def plot_distribuicao_dinamica(
     chi2_stat = linha['chi2']
     p_value = linha['p_value']
 
-    # =================================================
-    # RESULTADO DO TESTE
-    # =================================================
 
     if p_value > 0.05:
         resultado = "✓ Aderência à Distribuição de Poisson"
     else:
         resultado = "✗ Aderência Rejeitada"
-
-    # =================================================
-    # PREPARAÇÃO DOS DADOS
-    # =================================================
 
     pos = np.arange(
         0,
@@ -91,15 +78,11 @@ def plot_distribuicao_dinamica(
         .reset_index()
     )
 
-    # =================================================
-    # CRIAÇÃO DO GRÁFICO
-    # =================================================
 
     plt.figure(figsize=(11, 6))
 
     largura_barra = 0.40
 
-    # Dados observados
 
     plt.bar(
         pos - largura_barra / 2,
@@ -110,7 +93,6 @@ def plot_distribuicao_dinamica(
         edgecolor='black'
     )
 
-    # Distribuição esperada
 
     plt.bar(
         pos + largura_barra / 2,
@@ -121,8 +103,6 @@ def plot_distribuicao_dinamica(
         edgecolor='black',
         hatch='//'
     )
-
-    # Curva teórica
 
     plt.plot(
         pos,
@@ -137,9 +117,6 @@ def plot_distribuicao_dinamica(
         label='Curva Teórica'
     )
 
-    # =================================================
-    # TÍTULOS
-    # =================================================
 
     plt.suptitle(
         'Distribuição de Acidentes Graves na BR-101/AL',
@@ -152,9 +129,6 @@ def plot_distribuicao_dinamica(
         fontsize=12
     )
 
-    # =================================================
-    # EIXOS
-    # =================================================
 
     plt.xlabel(
         'Quantidade de Acidentes Graves por Dia',
@@ -168,7 +142,6 @@ def plot_distribuicao_dinamica(
         fontweight='bold'
     )
 
-    # Eixo X discreto (sem 0.5, 1.5, 2.5...)
 
     plt.xticks(
         pos,
@@ -179,10 +152,6 @@ def plot_distribuicao_dinamica(
         -0.5,
         max(pos) + 0.5
     )
-
-    # =================================================
-    # CAIXA ESTATÍSTICA
-    # =================================================
 
     texto_estatistico = (
         f"λ = {lambda_est:.3f}\n"
@@ -206,19 +175,12 @@ def plot_distribuicao_dinamica(
         fontsize=11
     )
 
-    # =================================================
-    # GRADE
-    # =================================================
-
     plt.grid(
         axis='y',
         linestyle=':',
         alpha=0.5
     )
 
-    # =================================================
-    # LEGENDA
-    # =================================================
 
     plt.legend(
         loc='center right',
@@ -226,9 +188,6 @@ def plot_distribuicao_dinamica(
         fontsize=11
     )
 
-    # =================================================
-    # RODAPÉ
-    # =================================================
 
     plt.figtext(
         0.01,
@@ -241,9 +200,6 @@ def plot_distribuicao_dinamica(
         fontsize=8
     )
 
-    # =================================================
-    # EXPORTAÇÃO
-    # =================================================
 
     caminho_png = os.path.join(
         CHARTS_DIR,
@@ -273,7 +229,6 @@ def plot_distribuicao_dinamica(
     print(f"✓ PNG salvo: {caminho_png}")
     print(f"✓ PDF salvo: {caminho_pdf}")
 
-# EXECUÇÃO
 
 plot_distribuicao_dinamica(
     arquivo_csv='poisson_dias_normais.csv',
